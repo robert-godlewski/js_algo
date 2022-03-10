@@ -27,3 +27,13 @@ var findNumbers = function(nums) {
     }
     return even_lengths
 };
+
+var sortedSquares = function(nums) {
+    let i = 0;
+    while (i < nums.length) {
+        nums[i] = nums[i]**2;
+        i++;
+    }
+    nums.sort(function(a,b){return a-b});
+    return nums;
+};
