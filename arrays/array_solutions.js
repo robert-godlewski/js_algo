@@ -1,3 +1,4 @@
+// Searching Funtions
 var findMaxConsecutiveOnes = function(nums) {
     let max_count = 0;
     let count = 0;
@@ -36,4 +37,36 @@ var sortedSquares = function(nums) {
     }
     nums.sort(function(a,b){return a-b});
     return nums;
+};
+
+// Inserting Functions
+var duplicateZeros = function(arr) {
+    let i = 0;
+    while (i < arr.length) {
+        console.log("i = " + i);
+        console.log("arr[i] = " + arr[i]);
+        if (arr[i] === 0) {
+            arr.splice(i, 0, 0);
+            arr.pop();
+            i++;
+        }
+        i++;
+        console.log("arr = " + arr);
+    }
+};
+
+//Need to fix
+var merge = function(nums1, m, nums2, n) {
+    const max_len = m+n;
+    let i = max_len;
+    while (i > 0) {
+        if (nums1[i] == 0) {
+            nums1.pop();
+        } else {
+            break;
+        }
+        i--;
+    }
+    nums1.push(nums2)
+    nums1.sort(function(a,b){return a-b})
 };
