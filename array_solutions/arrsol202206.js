@@ -1,3 +1,5 @@
+// Basic Array Algos
+
 // Given a binary array nums, return the maximum number of consecutive 1's in the array.
 // Constraints: 1 <= nums.length <= 10^5 and nums[i] = 0 or 1
 // Solved under 4 min!
@@ -49,4 +51,22 @@ var sortedSquares = function(nums) {
         // b-a is descending order
         return a-b;
     });
+};
+
+
+// Inserting Array Functions
+// Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right.
+// Note that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.
+// Constraints: 1 <= nums.length <= 10^4, 0 <= arr[i] <= 9, return nothing!
+var duplicateZeros = function(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] == 0) {
+            // splice function will add in the 0 in the middle of the list
+            arr.splice(i, 0, 0);
+            // need to skip one index or it will cause an infinate loop
+            i++;
+            // need to remove the very last item in the list
+            arr.pop();
+        }
+    }
 };
