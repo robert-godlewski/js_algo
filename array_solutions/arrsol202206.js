@@ -74,7 +74,8 @@ var duplicateZeros = function(arr) {
 // You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
 // Merge nums1 and nums2 into a single array sorted in non-decreasing order.
 // The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
-// This fails - Need to fix
+/*
+First solution - Fail
 var merge = function(nums1, m, nums2, n) {
     if (n > 0) {
         var i = 0;
@@ -103,3 +104,50 @@ var merge = function(nums1, m, nums2, n) {
         }
     }
 }
+*/
+/*
+Second solution - Fail
+var merge = function(nums1, m, nums2, n) {
+    var max_len = m+n;
+    // Add the 2 arrays together
+    // j to iterate through nums2
+    var j = 0;
+    for (var i = 0; i < max_len; i++) {
+        if (nums1[i] == 0) {
+            nums1[i] = nums2[j];
+            j++;
+        }
+    }
+    console.log(`Recenly merged array: ${nums1}`);
+    for (var i = 0; i < max_len; i++) {
+        console.log(`Current array: ${nums1}`);
+        var check_num = nums1[i];
+        for (var j = 0; j < max_len; j++) {
+            if (j+1 != max_len) {
+                if (check_num > nums1[j] && i < j) {
+                    var temp = nums1[j];
+                    nums1[j] = check_num;
+                    nums1[i] = temp;
+                }
+            }
+        }
+    }
+}
+*/
+/*
+Third solution - Still wrong for some reason
+var merge = function(nums1, m, nums2, n) {
+    var max_len = m+n;
+    // Add the 2 arrays together
+    // j to iterate through nums2
+    var j = 0;
+    for (var i = 0; i < max_len; i++) {
+        if (nums1[i] == 0) {
+            nums1[i] = nums2[j];
+            j++;
+        }
+    }
+    // using the sort function
+    nums1.sort((a,b) => {return a-b;});
+}
+*/
