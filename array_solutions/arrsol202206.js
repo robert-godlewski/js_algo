@@ -151,3 +151,28 @@ var merge = function(nums1, m, nums2, n) {
     nums1.sort((a,b) => {return a-b;});
 }
 */
+
+
+// This is without using another array to hold extraneous values
+var removeDuplicates = function(nums) {
+    // Will skip everything because nums = []
+    if (nums.length == 0) {
+        return 0;
+    }
+    // k is used to return
+    var k = 1;
+    // this compare variable is used to compare to the next
+    var compare = nums[0];
+    for (var i = 1; i < nums.length; i++) {
+        console.log(`nums = [${nums}]`);
+        console.log(`k = ${k}`);
+        console.log(`nums[${i}] = ${nums[i]}`);
+        if (nums[i] != compare) {
+            compare = nums[i];
+            nums[k] = nums[i];
+            k++;
+        }
+    }
+    console.log(nums);
+    return k;
+};
