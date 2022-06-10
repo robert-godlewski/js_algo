@@ -7,7 +7,7 @@
     <title>Algorithm Scripts</title>
     <!-- Array Solutions -->
     <script src="./array_solutions/arrsol202206.js"></script>
-    <script>
+    <!--<script>
         // This is used as a playground to test my code written in other imported Array scripts
         console.log('#############');
         console.log('Array Algorithms');
@@ -52,8 +52,26 @@
         console.log('Remove Duplicates:');
         var nums = [1,1,2]
         var num = removeDuplicates(nums);
-    </script>
+    </script>-->
     <!-- Strings -->
+    <script src="./string_solutions/strsol202206.js"></script>
+    <script>
+        // This is used as a playground to test my code written in other imported Array scripts
+        console.log('#############');
+        console.log('String Algorithms');
+        // Problem 1
+        console.log('Reversing a string');
+        var phrase = ['h','e','l','l','o'];
+        console.log(`Original: [${phrase}]`);
+        phrase = reverseString(phrase);
+        console.log(`Reversed: [${phrase}]`);
+        // Problem 2 - Take a look at the functions
+        console.log('Reversing Integer');
+        var num = 123;
+        console.log(`Original: ${num.toString()}`);
+        num = reverse(num);
+        console.log(`Reversed: ${num.toString()}`);
+    </script>
     <!-- Linked Lists -->
     <!-- Trees -->
     <!-- Sorting and Searching -->

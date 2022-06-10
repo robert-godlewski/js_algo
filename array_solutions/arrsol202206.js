@@ -154,6 +154,7 @@ var merge = function(nums1, m, nums2, n) {
 
 
 // This is without using another array to hold extraneous values
+// Took over 30 min!
 var removeDuplicates = function(nums) {
     // Will skip everything because nums = []
     if (nums.length == 0) {
