@@ -5,14 +5,14 @@ var reverseString = function(s) {
     var first = 0;
     var end = s.length-1;
     while (first < end) {
-        console.log(s);
+        //console.log(s);
         var temp = s[first];
         s[first] = s[end];
         s[end] = temp;
         first++;
         end--;
     }
-    console.log(s);
+    //console.log(s);
 };
 
 // Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
@@ -24,7 +24,7 @@ var reverse = function(x) {
     var first = 0;
     var end = x_arr.length-1;
     while (first < end) {
-        console.log(x_arr);
+        //console.log(x_arr);
         if (x_arr[first] == '-') {
             first++;
         }
@@ -35,7 +35,7 @@ var reverse = function(x) {
         end--;
     }
     s = x_arr.join("");
-    console.log(s);
+    //console.log(s);
     var result = parseInt(s, 10);
     if (result < -2147483648 || result >= 2147483648) {
         return 0;
