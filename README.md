@@ -1,19 +1,24 @@
-All of these algorithms are my solutions to LeetCode Problems in JavaScript
+# Description
+All of these algorithms are my solutions to LeetCode Problems in JavaScript.
 
-Am doing:
-* Arrays
-* Linked Lists
-* Recursion
+# Am currently doing:
+* Arrays - Data Structure
+* Linked Lists - Data Structure
+* Recursion - Coding Concept
 
-Need to do:
-* Bit Arithmetic
-* Hashes
-* Queues
-* Stacks
+# Need to do:
+Data Structures
+* Binary Trees
+* Hash Tables
+* Queues and Stacks
 * Sets
 * Heaps
-* Sorts
-* Tree
 * Tries
-* Graph
+* Graphs
+
+Coding Concepts
+* Bit Arithmetic
+* Sorting Algorithms
+* Binary Search
+* Dynamic Programming
 * Several other Algorithms later on
