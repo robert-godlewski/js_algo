@@ -1,3 +1,10 @@
+// Needed for middleNode
+function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val)
+    this.next = (next===undefined ? null : next)
+}
+
+
 /*
     @param {number[]} nums
     @return {number[]}
@@ -57,9 +64,106 @@ var fizzBuzz = function(n) {
             temp = i.toString();
         };
         fbarr.push(temp);
-        console.log(`[${fbarr}]`);
+        //console.log(`[${fbarr}]`);
     };
     return fbarr;
+};
+
+
+/*
+    @param {number} num
+    @return {number}
+*/
+// Solution in 15 min
+// O(n) time solution
+var numberOfSteps = function(num) {
+    let steps = 0;
+    while (num > 0) {
+        //console.log(`Number is currently = ${num}`);
+        if (num % 2 == 0) {
+            num /= 2;
+        } else {
+            num -= 1
+        };
+        steps++;
+    };
+    return steps;
+};
+
+
+/*
+    @param {ListNode} head
+    @return {ListNode}
+*/
+// Solved in 20 min
+// O(2n) = O(n) time solution
+var middleNode = function(head) {
+    // Finding the length
+    if (!head) {
+        return null;
+    }
+    let cur = head;
+    let len = 0;
+    while (cur) {
+        console.log(`cur = ${cur.val}`);
+        len++;
+        cur = cur.next;
+    };
+    // Finding the Middle
+    cur = head;
+    for (var i = 1; i < len/2; i++) {
+        cur = cur.next;
+    };
+    if (len%2 == 0) {
+        cur = cur.next;
+    };
+    return cur;
+};
+
+
+/*
+    @param {string} ransomNote
+    @param {string} magazine
+    @return {boolean}
+*/
+// Solved in over 30 min - Bad solution
+var canConstruct = function(ransomNote, magazine) {
+    let note_dict = {};
+    let mag_dict = {};
+    let note_arr = ransomNote.split("");
+    let mag_arr = magazine.split("");
+    for (let i = 0; i < note_arr.length; i++) {
+        let val = note_arr[i];
+        //console.log(`current letter = ${val}`);
+        if (!note_dict[val]) {
+            note_dict[val] = 1;
+        } else {
+            note_dict[val] += 1;
+        };
+    };
+    console.log(note_dict);
+    for (let i = 0; i < mag_arr.length; i++) {
+        let val = mag_arr[i];
+        //console.log(`current letter = ${val}`);
+        if (!mag_dict[val]) {
+            mag_dict[val] = 1;
+        } else {
+            mag_dict[val] += 1;
+        };
+    };
+    console.log(mag_dict);
+    let can = false;
+    for (let key in note_dict) {
+        if (key in mag_dict) {
+            if (note_dict[key] <= mag_dict[key]) {
+                can = true;
+            } else {
+                can = false;
+                break;
+            };
+        };
+    };
+    return can;
 };
 
 
@@ -108,3 +212,54 @@ console.log(`solution = [${fb2}]`);
 console.log('FizzBuzz for 15 times:');
 let fb3 = fizzBuzz(15);
 console.log(`solution = [${fb3}]`);
+
+// Testing numberOfSteps
+console.log('--------');
+let num1 = 14;
+console.log(`Number of steps it takes for ${num1} to get to 0:`);
+let steps1 = numberOfSteps(num1);
+console.log(`Answer = ${steps1}`);
+let num2 = 8;
+console.log(`Number of steps it takes for ${num2} to get to 0:`);
+let steps2 = numberOfSteps(num2);
+console.log(`Answer = ${steps2}`);
+let num3 = 123;
+console.log(`Number of steps it takes for ${num3} to get to 0:`);
+let steps3 = numberOfSteps(num3);
+console.log(`Answer = ${steps3}`);
+
+// Testing middleNode
+console.log('--------');
+let l1n5 = new ListNode(val=5);
+let l1n4 = new ListNode(val=4, next=l1n5);
+let l1n3 = new ListNode(val=3, next=l1n4);
+let l1n2 = new ListNode(val=2, next=l1n3);
+let l1n1 = new ListNode(val=1, next=l1n2);
+let middle1 = middleNode(l1n1);
+console.log(`Middle node = ${middle1.val}`);
+l1n5.next = new ListNode(val=6)
+let middle2 = middleNode(l1n1);
+console.log(`Middle node = ${middle2.val}`);
+
+// Testing canConstruct
+console.log('--------');
+let note1 = "a";
+let mag1 = "b";
+console.log(`Can you find ${note1} in ${mag1}?`);
+let ans1 = canConstruct(note1, mag1);
+console.log(ans1);
+let note2 = "aa";
+let mag2 = "ab";
+console.log(`Can you find ${note2} in ${mag2}?`);
+let ans2 = canConstruct(note2, mag2);
+console.log(ans2);
+let note3 = "aa";
+let mag3 = "aab";
+console.log(`Can you find ${note3} in ${mag3}?`);
+let ans3 = canConstruct(note3, mag3);
+console.log(ans3);
+let note4 = "bg";
+let mag4 = "efjbdfbdgfjhhaiigfhbaejahgfbbgbjagbddfgdiaigdadhcfcj";
+console.log(`Can you find ${note4} in ${mag4}?`);
+let ans4 = canConstruct(note4, mag4);
+console.log(ans4);
