@@ -127,6 +127,7 @@ var middleNode = function(head) {
     @return {boolean}
 */
 // Solved in over 30 min - Bad solution
+/*
 var canConstruct = function(ransomNote, magazine) {
     let note_dict = {};
     let mag_dict = {};
@@ -164,6 +165,49 @@ var canConstruct = function(ransomNote, magazine) {
         };
     };
     return can;
+};
+*/
+// 2nd attempt
+// Solved in over 1 hr - Need to practice
+var canConstruct = function(ransomNote, magazine) {
+    // Base cases
+    if (ransomNote == magazine) {
+        return true;
+    } else if (ransomNote.length > magazine.length && ransomNote != magazine) {
+        return false;
+    } else if (ransomNote.length == magazine.length && ransomNote.length == 1 && ransomNote != magazine) {
+        return false;
+    };
+    // Creating a hash map for the occurences of each letter in magazine
+    const mag_arr = magazine.split("");
+    let mag_dict = {};
+    for (let i = 0; i < mag_arr.length; i++) {
+        key = mag_arr[i];
+        if (key in mag_dict) {
+            mag_dict[key] += 1;
+        } else {
+            mag_dict[key] = 1;
+        };
+    };
+    console.log(mag_dict);
+    // Finding each letter in ransomNote in the hashmap
+    const ran_arr = ransomNote.split("");
+    for (let i = 0; i < ran_arr.length; i++) {
+        let key = ran_arr[i];
+        if (key in mag_dict) {
+            if (mag_dict[key] == 0) {
+                // Happens if there are more letters in ransomNote than there are in magazine
+                return false;
+            };
+            // Automatically decreases by 1 in the hashmap
+            mag_dict[key] -= 1;
+        } else {
+            // Not there will return false
+            return false;
+        };
+    };
+    // Automatically return true if went through ransomNote without any breaks
+    return true;
 };
 
 
