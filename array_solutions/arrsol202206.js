@@ -177,3 +177,49 @@ var removeDuplicates = function(nums) {
     console.log(nums);
     return k;
 };
+
+
+// Testing Area
+console.log('#############');
+console.log('Array Algorithms');
+// Problem 1
+console.log('Finding Maximum Consecutive Ones:');
+var nums = [1,1,0,1,1,1];
+console.log(findMaxConsecutiveOnes(nums));
+var nums = [1,0,1,1,0,1];
+console.log(findMaxConsecutiveOnes(nums));
+// Problem 2
+console.log('Finding numbers with even digits:');
+var nums = [12,345,2,6,7896];
+console.log(findNumbers(nums));
+var nums = [555,901,482,1771];
+console.log(findNumbers(nums));
+// Problem 3 - Need to work on
+console.log('Sorting squared numbers');
+var nums = [-4,-1,0,3,10];
+console.log(sortedSquares(nums));
+var nums = [-7,-3,2,3,11];
+console.log(sortedSquares(nums));
+// Problem 4
+console.log('Duplicate Zeros:');
+var nums = [1,0,2,3,0,4,5,0];
+console.log(duplicateZeros(nums));
+var nums = [1,2,3];
+console.log(duplicateZeros(nums));
+// Problem 5 - Need to work on - Leetcode for some reason will not accept this
+/*
+console.log('Merge Sorted Array:');
+var nums1 = [1,2,3,0,0,0];
+var nums2 = [2,5,6];
+console.log(`arrays pre merge: [${nums1}] and [${nums2}]`);
+nums1 = merge(nums1, 3, nums2, 3);
+console.log(`array after merge: ${nums1}`);
+var nums = merge([1], 1, [], 0);
+console.log(nums);
+var nums = merge([0], 0, [1], 1);
+console.log(nums);
+*/
+// Problem 6 - Need to work on
+console.log('Remove Duplicates:');
+var nums = [1,1,2]
+var num = removeDuplicates(nums);
