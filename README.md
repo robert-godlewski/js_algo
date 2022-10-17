@@ -5,6 +5,7 @@ All of these algorithms are my solutions to LeetCode Problems in JavaScript.
 * Arrays - Data Structure
 * Linked Lists - Data Structure
 * Recursion - Coding Concept
+* Hashmaps - Data Structure
 
 # Need to do:
 Data Structures

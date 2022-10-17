@@ -69,11 +69,11 @@ console.log('Array Algorithms');
 
 // Testing sortedSquares
 console.log('--------');
-var nums1 = [-4,-1,0,3,10]
+var nums1 = [-4,-1,0,3,10];
 console.log(`Initial unsquared array = [${nums1}]`);
 var squ1 = sortedSquares(nums1);
 console.log(`Squared and sorted array = [${squ1}]`);
-var nums2 = [-7,-3,2,3,11]
+var nums2 = [-7,-3,2,3,11];
 console.log(`Initial unsquared array = [${nums2}]`);
 var squ2 = sortedSquares(nums2);
 console.log(`Squared and sorted array = [${squ2}]`);
