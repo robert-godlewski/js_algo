@@ -89,6 +89,54 @@ var isIsomorphic = function(s, t) {
 };
 
 
+// Solution in 30 min
+// Time Solution = O(3n) = O(n)
+// Space Solution = O(n**2)
+/**
+ * @param {string[]} list1
+ * @param {string[]} list2
+ * @return {string[]}
+ */
+var findRestaurant = function(list1, list2) {
+    var indexes = {};
+    for (var i = 0; i < list1.length; i++) {
+        var key = list1[i];
+        if (indexes[key]) {
+            indexes[key]["index_list"].push(i);
+            indexes[key]["subtotal"] += i;
+        } else {
+            indexes[key] = {
+                "index_list": [i],
+                "subtotal": i
+            };
+        };
+    };
+    for (var i = 0; i < list2.length; i++) {
+        var key = list2[i];
+        if (indexes[key]) {
+            indexes[key]["index_list"].push(i);
+            indexes[key]["subtotal"] += i;
+        };
+    };
+    var minsum = -1;
+    var results = [];
+    for (key in indexes) {
+        if (indexes[key]["index_list"].length > 1) {
+            if (minsum == -1) {
+                minsum = indexes[key]["subtotal"];
+            };
+            if (indexes[key]["subtotal"] == minsum) {
+                results.push(key);
+            } else if (indexes[key]["subtotal"] < minsum) {
+                minsum = indexes[key]["subtotal"];
+                results = [key];
+            };
+        };
+    };
+    return results;
+};
+
+
 // Testing Area
 console.log('#############');
 console.log('Hash Map Algorithms');
@@ -114,3 +162,19 @@ var isomorphicTest = function(s, t) {
 isomorphicTest("egg", "add");
 isomorphicTest("foo", "bar");
 isomorphicTest("paper", "title");
+
+// Testing findRestaurant
+console.log('--------');
+var listIndexSumTest = function(list1, list2) {
+    console.log("List 1:");
+    console.log(`[${list1}]`);
+    console.log("List 2:");
+    console.log(`[${list2}]`);
+    var listnew = findRestaurant(list1, list2);
+    console.log(`Final list: [${listnew}]`);
+};
+listIndexSumTest(list1=["Shogun","Tapioca Express","Burger King","KFC"], list2=["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]);
+listIndexSumTest(list1=["Shogun","Tapioca Express","Burger King","KFC"], list2=["KFC","Shogun","Burger King"]);
+listIndexSumTest(list1=["happy","sad","good"], list2=["sad","happy","good"]);
+var doublearr = ["k","KFC"];
+listIndexSumTest(doublearr, doublearr);
